@@ -9,7 +9,7 @@ export default function Featured() {
             </div>
               <div className=" mt-2 flex justify-center p-3 items-center w-9/12 rounded-lg overflow-hidden">
                   <div className=" flex  justify-center w-5/6 ">
-                      <img src="/search.png" alt="search" className="bg-white p-3 rounded-l-lg"/>
+                      <img src="/search.png" alt="search" className="bg-white p-3 rounded-l-lg "/>
                       <input type="text" placeholder="Try building mobile app..." className="w-full  p-3 text-black outline-none" />
                   </div>
                   <button className="bg-green-600 p-3.5 rounded-r-lg font-semibold text-xl">Search</button>
