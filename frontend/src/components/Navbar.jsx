@@ -27,9 +27,9 @@ export default function Navbar() {
         isSeller : true
     }
   return (
-    <header className={active || pathname !== '/' ? 'bg-green-800 text-white' : 'bg-white text-black'}style={{transition : '0.5s all ease', position:'sticky',top : 0, display:'flex', flexDirection:'column',border:'none'}}>
+    <header className={active || pathname !== '/' ? 'bg-green-800 text-white' : 'bg-white text-black'}style={{transition : '0.5s all ease', position:'sticky',top : 0, display:'flex', flexDirection:'column',border:'none', zIndex:999}}>
         <div className="w-full flex justify-between items-center p-5">
-            <div className="text-3xl font-bold flex items-center lg:ml-10 sm:ml-0  ">
+            <div className="text-4xl font-extrabold italic flex items-center lg:ml-10 sm:ml-0  ">
                 <Link to={'/'}>
                 <span>Skill</span>
                 <span>Lance</span>
@@ -70,10 +70,9 @@ export default function Navbar() {
                 } 
             </div>
         </div>
-        <hr />
         {(!active || pathname !=='/') && (
         <>
-        <div className=" flex gap-3 items-center justify-evenly p-2" >
+        <div className=" flex gap-3 items-center justify-evenly p-2 border-b" >
             <Link to={'/'}>
             Graphics & Design
             </Link>

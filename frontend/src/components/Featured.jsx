@@ -16,10 +16,10 @@ export default function Featured() {
               </div>
               <div className="flex gap-3 items-center font-semibold">
                   <span className=" text-xl">Popular: </span>
-                  <button className="  p-2 border rounded-3xl">Web Design</button>
-                  <button className="  p-2 border rounded-3xl">Wordpress</button>
-                  <button className="  p-2 border rounded-3xl">Logo design</button>
-                  <button className="  p-2 border rounded-3xl">AI Services</button>
+                  <button className="  p-2 border-2 rounded-3xl">Web Design</button>
+                  <button className="  p-2 border-2 rounded-3xl">Wordpress</button>
+                  <button className="  p-2 border-2 rounded-3xl">Logo design</button>
+                  <button className="  p-2 border-2 rounded-3xl">AI Services</button>
               </div>
           </div>
           <div>
