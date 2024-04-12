@@ -10,7 +10,7 @@ export default function Navbar() {
 
      
     const isActive = () => {
-        window.scrollY > 0 ?  setActive(false) : setActive(true)
+        window.scrollY > 0 ?  setActive(true) : setActive(false)
         // setActive(window.scrollY > 0)
     };
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function Navbar() {
         return () => {
             window.removeEventListener('scroll',isActive);
         };
-    },[])
+    },[]);
 
 
     const currentUser = {
@@ -27,7 +27,7 @@ export default function Navbar() {
         isSeller : true
     }
   return (
-    <header className={active || pathname !== '/' ? 'bg-green-800 text-white' : 'bg-white text-black'}
+    <header className={active || pathname !== '/' ? 'bg-white text-black' :  'bg-green-800 text-white'}
     style={{transition : '0.5s all ease', position:'sticky',top : 0, display:'flex', flexDirection:'column',border:'none', zIndex:999}}>
         <div className="w-full flex justify-between items-center p-5 ">
             <div className="text-4xl font-extrabold italic flex items-center lg:ml-9 sm:ml-0   ">
