@@ -3,7 +3,7 @@ export default function Footer() {
   return (
     <div className="w-full flex border-t mt-20">
       <div className="w-full flex flex-col  items-center justify-center p-3 ">
-        <div className="w-full flex  justify-between p-16">
+        <div className="w-full flex  justify-between p-12">
 
           <div className="flex flex-col gap-4 text-gray-600 ">
             <h2 className="font-bold">Categories</h2>
@@ -71,11 +71,11 @@ export default function Footer() {
 
         
         <div className="w-full h-[70px] flex items-center justify-between border-t mt-2">
-          <div className="h-full flex justify-center gap-6 items-center ml-8 p-12 ">
+          <div className="h-full flex justify-center gap-6 items-center ml-4 p-12 ">
             <h2 className="text-2xl font-bold text-gray-500">SkillLance</h2>
             <span className="text-gray-400 text-sm">© SkillLance International Ltd. 2023</span>
           </div>
-          <div className="flex w-5/12    justify-center items-center gap-10   mr-20">
+          <div className="flex w-5/12    justify-center items-center gap-10   mr-10">
 
             <div className="flex items-center gap-3 ">
 

@@ -27,15 +27,16 @@ export default function Navbar() {
         isSeller : true
     }
   return (
-    <header className={active || pathname !== '/' ? 'bg-green-800 text-white' : 'bg-white text-black'}style={{transition : '0.5s all ease', position:'sticky',top : 0, display:'flex', flexDirection:'column',border:'none', zIndex:999}}>
-        <div className="w-full flex justify-between items-center p-5">
-            <div className="text-4xl font-extrabold italic flex items-center lg:ml-10 sm:ml-0  ">
+    <header className={active || pathname !== '/' ? 'bg-green-800 text-white' : 'bg-white text-black'}
+    style={{transition : '0.5s all ease', position:'sticky',top : 0, display:'flex', flexDirection:'column',border:'none', zIndex:999}}>
+        <div className="w-full flex justify-between items-center p-5 ">
+            <div className="text-4xl font-extrabold italic flex items-center lg:ml-9 sm:ml-0   ">
                 <Link to={'/'}>
-                <span>Skill</span>
+                <span className="">Skill</span>
                 <span>Lance</span>
                 </Link>
             </div>
-            <div className="flex gap-10  items-center lg:mr-10 ">
+            <div className="flex gap-10  items-center lg:mr-9 ">
                 <span className="hidden lg:inline  cursor-pointer hover:underline   font-semibold text-xl">Business</span>
                 <span className="hidden lg:inline cursor-pointer hover:underline    font-semibold text-xl">Explore</span>
                 <span className="hidden lg:inline  cursor-pointer hover:underline   font-semibold text-xl">English</span>
