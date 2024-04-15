@@ -115,7 +115,7 @@ export default function Gig() {
             <h2 className='text-lg'>Reviews</h2>
 
 
-            <div className='flex flex-col gap-2 p-1'>
+            <div className='flex flex-col gap-2 p-1 my-4'>
 
               <div className='flex items-center gap-4'>
                 <img src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600" alt=""
@@ -137,7 +137,7 @@ export default function Gig() {
                 <img src="/star.png" alt="" className='w-4 h-4' />
                 <img src="/star.png" alt="" className='w-4 h-4' />
                 <img src="/star.png" alt="" className='w-4 h-4' />
-                <span>5</span>
+                <span className='text-yellow-500 font-semibold'>5</span>
               </div>
               <p>
                 I just want to say that art_with_ai was the first, and after
@@ -158,7 +158,7 @@ export default function Gig() {
             <hr />
 
 
-            <div className='flex flex-col gap-2 p-1'>
+            <div className='flex flex-col gap-2 p-1 my-4'>
 
               <div className='flex items-center gap-4'>
                 <img src="https://images.pexels.com/photos/4124367/pexels-photo-4124367.jpeg?auto=compress&cs=tinysrgb&w=1600" alt=""
@@ -182,7 +182,7 @@ export default function Gig() {
                 <img src="/star.png" alt="" className='w-4 h-4' />
                 <img src="/star.png" alt="" className='w-4 h-4' />
                 <img src="/star.png" alt="" className='w-4 h-4' />
-                <span>5</span>
+                <span className='text-yellow-500 font-semibold'>5</span>
               </div>
               <p>
                 The designer took my photo for my book cover to the next level!
@@ -199,7 +199,7 @@ export default function Gig() {
               </div>
             </div>
             <hr />
-            <div className='flex flex-col gap-2 p-1'>
+            <div className='flex flex-col gap-2 p-1 my-4'>
 
               <div className='flex items-center gap-4'>
                 <img src="https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1600" alt=""
@@ -221,7 +221,7 @@ export default function Gig() {
                 <img src="/star.png" alt="" className='w-4 h-4' />
                 <img src="/star.png" alt="" className='w-4 h-4' />
                 <img src="/star.png" alt="" className='w-4 h-4' />
-                <span>5</span>
+                <span className='text-yellow-500 font-semibold'>5</span>
               </div>
               <p>
                 Amazing work! Communication was

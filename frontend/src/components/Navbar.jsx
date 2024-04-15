@@ -55,10 +55,10 @@ export default function Navbar() {
                         {currentUser?.username} 
                     </span>
                   {open &&  
-                   <div className="absolute top-[50px] right-0 p-[20px] bg-white border-1 border-gray-50 rounded-lg flex flex-col gap-3 text-gray-400 w-40">
+                   <div className="absolute top-[50px] right-0 p-[20px] bg-white border-1 border border-gray-400 rounded-lg flex flex-col gap-3 text-gray-400 w-40">
                        {currentUser?.isSeller && (
                             <>
-                            <Link to={'/gigs'}>Gigs</Link>
+                            <Link to={'/myGigs'}>Gigs</Link>
                             <Link to={'/add'}>Add new Gig</Link>
                             </>
                          )} 
