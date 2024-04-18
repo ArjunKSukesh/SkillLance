@@ -8,11 +8,14 @@ import messageRoute from './routes/message.route.js'
 import gigRoute from './routes/gig.route.js'
 import conversationRoute from './routes/conversation.route.js'
 import authRoute from './routes/auth.route.js'
+import cookieParser from 'cookie-parser';
+
 
 const app = express();
 dotenv.config();
  
 app.use(express.json());
+app.use(cookieParser());
 //5lmVAMAMBKteq5m5
 //arjunkcert 
 try {
@@ -29,6 +32,16 @@ app.use('/api/user',messageRoute);
 app.use('/api/user',gigRoute);
 app.use('/api/user',conversationRoute);
 
+
+app.use((err, req, res, next) => {
+  const errorStatus = err.status || 500 ;
+  const errorMessage = err.message || 'Something went wrong !!!';
+
+  return res.status(errorStatus).send(errorMessage);
+
+})
+
 app.listen(3000, () => {
     console.log('Port 3000 is running')
 }) 
+
