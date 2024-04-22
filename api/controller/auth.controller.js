@@ -68,7 +68,14 @@ try {
 }
 }
 export const logout = (req, res) => {
-    res.send('logout')
+
+    res.clearCookie('accessToken',{
+        sameSite: "none",
+        secure: true
+    })
+    .status(200).send("User has been logged out");
+
+
 }
 
 

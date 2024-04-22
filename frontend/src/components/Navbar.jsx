@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import {Link, useLocation} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
+import newRequest from "../utils/newRequest.js";
 
-export default function Navbar() {
+export default function Navbar({setShowLogin}) {
 
     const [active, setActive] = useState(false);
     const[open, setOpen] = useState(false);
+    const navigate = useNavigate();
 
     const {pathname} = useLocation();
 
@@ -21,14 +23,20 @@ export default function Navbar() {
     },[]);
 
 
-    const currentUser = {
-        id : 1,
-        username : 'Arjun K ',
-        isSeller : true
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+
+    const handleLogout = async () => {
+        try {
+            await newRequest.post('/auth/logout');
+            localStorage.setItem('currentUser',null);
+            navigate('/')
+        } catch (error) {
+            console.log(error)
+        }
     }
   return (
     <header className={active || pathname !== '/' ? 'bg-white text-black' :  'bg-green-800 text-white'}
-    style={{transition : '0.5s all ease', position:'sticky',top : 0, display:'flex', flexDirection:'column',border:'none', zIndex:999}}>
+    style={{transition : '0.5s all ease', position:'sticky',top : 0, display:'flex', flexDirection:'column',border:'none', zIndex:99}}>
         <div className="w-full flex justify-between items-center p-5 ">
             <div className="text-4xl font-extrabold italic flex items-center lg:ml-9 sm:ml-0   ">
                 <Link to={'/'}>
@@ -40,15 +48,24 @@ export default function Navbar() {
                 <span className="hidden lg:inline  cursor-pointer hover:underline   font-semibold text-xl">Business</span>
                 <span className="hidden lg:inline cursor-pointer hover:underline    font-semibold text-xl">Explore</span>
                 <span className="hidden lg:inline  cursor-pointer hover:underline   font-semibold text-xl">English</span>
-               { !currentUser ?.isSeller && 
-                <span className=" font-semibold lg:text-xl   cursor-pointer hover:underline bg-blue-300 w-[66px]">Sign in</span>
-                } 
+               { !currentUser?.isSeller && 
+                <span className=" font-semibold lg:text-xl   cursor-pointer hover:underline  text-center w-[150px]"                
+                >Become a Seller</span>
+                }  
+               {/* { currentUser? <></> : 
+                <span className=" font-semibold lg:text-xl   cursor-pointer hover:underline  w-[66px]"
+                onClick={() => setShowSignup(true)}
+                >Sign in</span>
+                }   */}
                 { !currentUser && 
-                <button className="  font-semibold cursor-pointer rounded  border border-white px-4 py-1 hover:bg-green-600 lg:text-xl">Join</button>
+                <button 
+                className={ !active || pathname!== '/' ? 'border border-white text-white px-4 py-1 font-semibold cursor-pointer rounded lg:text-xl' :"font-semibold cursor-pointer rounded  border border-green-600 text-green-600 px-4 py-1 hover:bg-green-600 hover:text-white lg:text-xl"}
+                onClick={()=> setShowLogin(true)}
+                >Join</button>
                 }
                 {currentUser &&  
                 <div className="flex items-center gap-2 relative" onClick={() => setOpen(!open)}>
-                    <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="profile"
+                    <img src={currentUser.img || "/noavatar.png"} alt="profile"
                     className="w-10 h-10 rounded-full cursor-pointer"
                     />
                     <span className="cursor-pointer">
@@ -64,10 +81,10 @@ export default function Navbar() {
                          )} 
                         <Link to={'/orders'}>Orders</Link>
                         <Link to={'/messages'}>Messages</Link>
-                        <Link to={'/'}>Logout</Link>
+                        <Link onClick={handleLogout}>Logout</Link>
                     </div>
                     } 
-                </div>
+                </div> 
                 } 
             </div>
         </div>

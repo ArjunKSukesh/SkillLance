@@ -10,18 +10,32 @@ import MyGigs from './pages/MyGigs';
 import Add from './pages/Add';
 import Messages from './pages/Messages';
 import Message from './pages/Message';
+import Login from "./pages/Login";
+
+
+
+
+import { useState } from "react";
+import Signup from "./pages/Signup";
 
 
 
 export default function App() {
 
+  const [showLogin, setShowLogin] = useState(false)
+  const [showSignup, setShowSignup] = useState(false)
+
   const Layout = () => {
     return(
+      <>
+      {showLogin && <Login setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>}
+      {showSignup && <Signup setShowSignup={setShowSignup} setShowLogin={setShowLogin}/> }
       <div>
-        <Navbar/>
+        <Navbar setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
         <Outlet/>
         <Footer/>
       </div>
+      </>
     )
   }
 
@@ -63,6 +77,8 @@ export default function App() {
           path : '/message/:id',
           element:<Message/>
         },
+        
+        
 
       ]
     }
