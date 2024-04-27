@@ -52,14 +52,14 @@ export default function Navbar({setShowLogin}) {
                 <span className=" font-semibold lg:text-xl   cursor-pointer hover:underline  text-center w-[150px]"                
                 >Become a Seller</span>
                 }  
-               {/* { currentUser? <></> : 
+               { currentUser? <></> : 
                 <span className=" font-semibold lg:text-xl   cursor-pointer hover:underline  w-[66px]"
-                onClick={() => setShowSignup(true)}
+                onClick={() => navigate('/signup')}
                 >Sign in</span>
-                }   */}
+                }  
                 { !currentUser && 
                 <button 
-                className={ !active || pathname!== '/' ? 'border border-white text-white px-4 py-1 font-semibold cursor-pointer rounded lg:text-xl' :"font-semibold cursor-pointer rounded  border border-green-600 text-green-600 px-4 py-1 hover:bg-green-600 hover:text-white lg:text-xl"}
+                className={ !active || pathname!== '/' ? 'border border-green-600 text-green-600 px-4 py-1 font-semibold cursor-pointer rounded lg:text-xl' :"font-semibold cursor-pointer rounded  border border-green-600 text-green-600 px-4 py-1 hover:bg-green-600 hover:text-white lg:text-xl"}
                 onClick={()=> setShowLogin(true)}
                 >Join</button>
                 }

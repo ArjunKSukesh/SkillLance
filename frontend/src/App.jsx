@@ -11,27 +11,25 @@ import Add from './pages/Add';
 import Messages from './pages/Messages';
 import Message from './pages/Message';
 import Login from "./pages/Login";
-
-
-
-
-import { useState } from "react";
 import Signup from "./pages/Signup";
+import { useState } from "react";
+
+
+
+
 
 
 
 export default function App() {
 
   const [showLogin, setShowLogin] = useState(false)
-  const [showSignup, setShowSignup] = useState(false)
 
   const Layout = () => {
     return(
       <>
-      {showLogin && <Login setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>}
-      {showSignup && <Signup setShowSignup={setShowSignup} setShowLogin={setShowLogin}/> }
+      {showLogin && <Login setShowLogin={setShowLogin} />}
       <div>
-        <Navbar setShowLogin={setShowLogin} setShowSignup={setShowSignup}/>
+        <Navbar setShowLogin={setShowLogin} />
         <Outlet/>
         <Footer/>
       </div>
@@ -77,6 +75,11 @@ export default function App() {
           path : '/message/:id',
           element:<Message/>
         },
+        {
+          path : '/register',
+          element:<Signup/>
+        },
+
         
         
 
