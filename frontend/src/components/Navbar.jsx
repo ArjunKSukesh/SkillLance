@@ -54,7 +54,7 @@ export default function Navbar({setShowLogin}) {
                 }  
                { currentUser? <></> : 
                 <span className=" font-semibold lg:text-xl   cursor-pointer hover:underline  w-[66px]"
-                onClick={() => navigate('/signup')}
+                onClick={() => navigate('/register')}
                 >Sign in</span>
                 }  
                 { !currentUser && 

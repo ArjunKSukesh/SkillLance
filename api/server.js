@@ -30,7 +30,7 @@ app.use('/api/user',userRoute);
 app.use('/api/user',reviewRoute);
 app.use('/api/user',orderRoute);
 app.use('/api/user',messageRoute);
-app.use('/api/user',gigRoute);
+app.use('/api/user/gigs',gigRoute);
 app.use('/api/user',conversationRoute);
 
 

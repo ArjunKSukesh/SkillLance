@@ -70,3 +70,5 @@ const gigSchema = new Schema({
 
 
 export default mongoose.model("Gig", gigSchema)
+
+
