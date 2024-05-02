@@ -14,3 +14,5 @@ export const verifyToken = (req, res, next) => {
         next();  // if next is not used it won't go to the next function
     });
 }
+
+

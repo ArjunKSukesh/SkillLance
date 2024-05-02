@@ -13,7 +13,11 @@ import Message from './pages/Message';
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import { useState } from "react";
-
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQuery,
+} from '@tanstack/react-query';
 
 
 
@@ -22,16 +26,20 @@ import { useState } from "react";
 
 export default function App() {
 
-  const [showLogin, setShowLogin] = useState(false)
+  const [showLogin, setShowLogin] = useState(false);
+  const queryClient = new QueryClient();
+
 
   const Layout = () => {
     return(
       <>
       {showLogin && <Login setShowLogin={setShowLogin} />}
       <div>
+      <QueryClientProvider client={queryClient}>
         <Navbar setShowLogin={setShowLogin} />
         <Outlet/>
         <Footer/>
+    </QueryClientProvider>
       </div>
       </>
     )

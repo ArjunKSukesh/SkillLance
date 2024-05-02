@@ -17,8 +17,7 @@ dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({origin:'http://localhost:5173',credentials:true}));
-//5lmVAMAMBKteq5m5
-//arjunkcert 
+
 try {
     await mongoose.connect(process.env.MONGO);
     console.log('connected to db')
@@ -27,11 +26,11 @@ try {
   }
 app.use('/api/auth',authRoute);
 app.use('/api/user',userRoute);
-app.use('/api/user',reviewRoute);
-app.use('/api/user',orderRoute);
-app.use('/api/user',messageRoute);
-app.use('/api/user/gigs',gigRoute);
-app.use('/api/user',conversationRoute);
+app.use('/api/review',reviewRoute);
+app.use('/api/order',orderRoute);
+app.use('/api/message',messageRoute);
+app.use('/api/gigs',gigRoute);
+app.use('/api/conversation',conversationRoute);
 
 
 

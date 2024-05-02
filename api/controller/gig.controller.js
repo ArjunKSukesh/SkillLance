@@ -47,10 +47,13 @@ export const getGig = async (req, res, next) => {
         res.status(200).send(gig);
     } catch (err) {
         next(err);
+        console.log(err)
 
     }
 
 }
+
+
 export const getGigs = async (req, res, next) => {
     const q = req.query;
     const filters = {
@@ -64,10 +67,13 @@ export const getGigs = async (req, res, next) => {
 
     };
     try {
-        const gigs = await Gig.find(filters);
+        const gigs = await Gig.find(filters).sort({[q.sort] : -1});
         res.status(200).send(gigs);
     } catch (err) {
         next(err);
-    }
+    }      
 }
+
+
+
 
