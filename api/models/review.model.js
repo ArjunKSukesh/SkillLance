@@ -24,3 +24,4 @@ const reviewSchema = new Schema({
 
 
 export default mongoose.model("Review", reviewSchema)
+

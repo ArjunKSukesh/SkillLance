@@ -27,7 +27,6 @@ export default function Gigs() {
         .catch(error => console.log(error))
   });
 
-  console.log(data)
 
 
   const reSort = (type) => {

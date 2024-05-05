@@ -2,11 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 import { Slider } from 'infinite-react-carousel';
 import { useParams } from 'react-router-dom';
 import newRequest from '../utils/newRequest.js';
+import Reviews from '../components/Reviews.jsx';
 
 export default function Gig() {
 
   const { id } = useParams();
-
+  
   const { isLoading, error, data } = useQuery({
     queryKey: ['gig'],
     queryFn: () =>
@@ -24,6 +25,7 @@ export default function Gig() {
           return res.data
         })
   });
+
 
   return (
     <div className='w-full flex justify-center '>
@@ -50,7 +52,8 @@ export default function Gig() {
                       .fill()
                       .map((item, i) => (
 
-                        <img src="/star.png" alt="" className='w-4 h-4' key={i} />
+                        <span className="text-yellow-400 text-4xl cursor-pointer " key={i}>&#9733;</span>
+
                       ))}
                     <span className='text-yellow-600 font-semibold'>
                       {Math.round(data.totalStars / data.starNumber)}
@@ -136,139 +139,10 @@ export default function Gig() {
               </div>
             </div>)}
 
-
-            <div className='flex flex-col gap-3'>
-              <h2 className='text-lg'>Reviews</h2>
+            <Reviews gigId={id}/>
 
 
-              <div className='flex flex-col gap-2 p-1 my-4'>
-
-                <div className='flex items-center gap-4'>
-                  <img src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600" alt=""
-                    className='w-10 h-10 rounded-full object-cover'
-                  />
-                  <div>
-                    <span className='text-base font-semibold'>Garner David</span>
-                    <div className='flex items-center gap-2'>
-                      <img src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png" alt=""
-                        className='w-5 h-5'
-                      />
-                      <span className='text-sm text-gray-500'>United States</span>
-                    </div>
-                  </div>
-                </div>
-                <div className='flex items-center gap-2'>
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <span className='text-yellow-500 font-semibold'>5</span>
-                </div>
-                <p>
-                  I just want to say that art_with_ai was the first, and after
-                  this, the only artist Ill be using on Fiverr. Communication was
-                  amazing, each and every day he sent me images that I was free to
-                  request changes to. They listened, understood, and delivered
-                  above and beyond my expectations. I absolutely recommend this
-                  gig, and know already that Ill be using it again very very soon
-                </p>
-                <div className='flex items-center gap-3 font-semibold'>
-                  <span>Helpful?</span>
-                  <img src="/like.png" alt="" className='w-4 h-4 cursor-pointer' />
-                  <span>Yes</span>
-                  <img src="/dislike.png" alt="" className='w-4 h-4 cursor-pointer' />
-                  <span>No</span>
-                </div>
-              </div>
-              <hr />
-
-
-              <div className='flex flex-col gap-2 p-1 my-4'>
-
-                <div className='flex items-center gap-4'>
-                  <img src="https://images.pexels.com/photos/4124367/pexels-photo-4124367.jpeg?auto=compress&cs=tinysrgb&w=1600" alt=""
-                    className='w-10 h-10 rounded-full object-cover'
-                  />
-                  <div>
-                    <span className='text-base font-semibold'>Sidney Owen</span>
-                    <div className='flex items-center gap-2'>
-                      <img
-                        src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1e9-1f1ea.png"
-                        alt=""
-                        className='w-5 h-5'
-                      />
-                      <span className='text-sm text-gray-500'>Germany</span>
-                    </div>
-                  </div>
-                </div>
-                <div className='flex items-center gap-2'>
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <span className='text-yellow-500 font-semibold'>5</span>
-                </div>
-                <p>
-                  The designer took my photo for my book cover to the next level!
-                  Professionalism and ease of working with designer along with
-                  punctuality is above industry standards!! Whatever your project
-                  is, you need this designer!
-                </p>
-                <div className='flex items-center gap-3 font-semibold'>
-                  <span>Helpful?</span>
-                  <img src="/like.png" alt="" className='w-4 h-4 cursor-pointer' />
-                  <span>Yes</span>
-                  <img src="/dislike.png" alt="" className='w-4 h-4 cursor-pointer' />
-                  <span>No</span>
-                </div>
-              </div>
-              <hr />
-              <div className='flex flex-col gap-2 p-1 my-4'>
-
-                <div className='flex items-center gap-4'>
-                  <img src="https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1600" alt=""
-                    className='w-10 h-10 rounded-full object-cover'
-                  />
-                  <div>
-                    <span className='text-base font-semibold'>Lyle Giles</span>
-                    <div className='flex items-center gap-2'>
-                      <img src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png" alt=""
-                        className='w-5 h-5'
-                      />
-                      <span className='text-sm text-gray-500'>United States</span>
-                    </div>
-                  </div>
-                </div>
-                <div className='flex items-center gap-2'>
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <img src="/star.png" alt="" className='w-4 h-4' />
-                  <span className='text-yellow-500 font-semibold'>5</span>
-                </div>
-                <p>
-                  Amazing work! Communication was
-                  amazing, each and every day he sent me images that I was free to
-                  request changes to. They listened, understood, and delivered
-                  above and beyond my expectations. I absolutely recommend this
-                  gig, and know already that Ill be using it again very very soon
-                </p>
-                <div className='flex items-center gap-3 font-semibold'>
-                  <span>Helpful?</span>
-                  <img src="/like.png" alt="" className='w-4 h-4 cursor-pointer' />
-                  <span>Yes</span>
-                  <img src="/dislike.png" alt="" className='w-4 h-4 cursor-pointer' />
-                  <span>No</span>
-                </div>
-              </div>
-              <hr />
-
-
-
-            </div>
+            
 
           </div>
 
