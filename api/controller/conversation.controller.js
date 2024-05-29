@@ -1,4 +1,5 @@
 import Conversation from '../models/conversation.model.js'
+import createError from '../utils/createError.js';
 
 
 export const createConversation = async (req, res, next) => {
@@ -26,7 +27,7 @@ export const updateConversation = async (req, res, next) => {
 
     try {
         const updatedConversation = await Conversation.findOneAndUpdate(
-            { id: req.params.id },
+            { id: req.params.id }, //id= buyerid+sellerid
             {
                 $set: {
                     // readBySeller: true,
@@ -49,6 +50,7 @@ export const updateConversation = async (req, res, next) => {
 export const getSingleConversation =async (req, res, next) => {
     try {
         const singleConversation = await Conversation.findOne({id : req.params.id});
+        if(!singleConversation) return next(createError(404,'Not found'));
         res.status(200).send(singleConversation);
     } catch (err) {
         next(err)
@@ -59,11 +61,10 @@ export const getSingleConversation =async (req, res, next) => {
 
 export const getConversations =async (req, res, next) => {
 
-    try {
-        
+    try {        
         const allConversation = await Conversation.find(
             req.isSeller ? {sellerId: req.userId} : {buyerId: req.userId}
-        );
+        ).sort({updatedAt : -1});
 
         res.status(200).send(allConversation);
 

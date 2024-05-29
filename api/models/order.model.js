@@ -27,10 +27,10 @@ const orderSchema = new Schema({
         type: String,
         required: true
     },
-    isCompleted:{
-        type: Boolean,
-        default: false
-    },
+    // isCompleted:{
+    //     type: Boolean,
+    //     default: false
+    // },
     payment_intent:{
         type: String,
         required: true
@@ -39,3 +39,4 @@ const orderSchema = new Schema({
 
 
 export default mongoose.model("Order", orderSchema)
+

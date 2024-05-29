@@ -6,7 +6,8 @@ import moment from 'moment';
 export default function Messages() {
 
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
+  
+  const queryClient = useQueryClient();
   const { isLoading, error, data } = useQuery({
     queryKey: ['conversations'],
     queryFn: () =>
@@ -14,7 +15,7 @@ export default function Messages() {
         .then(res => res.data)
   });
 
-  const queryClient = useQueryClient();
+  
 
   const mutation = useMutation({
     mutationFn : (id) => {

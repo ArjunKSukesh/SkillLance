@@ -15,13 +15,8 @@ import Signup from "./pages/Signup";
 import { useState } from "react";
 import {
   QueryClient,
-  QueryClientProvider,
-  useQuery,
+  QueryClientProvider
 } from '@tanstack/react-query';
-
-
-
-
 
 
 export default function App() {
@@ -87,10 +82,7 @@ export default function App() {
           path : '/register',
           element:<Signup/>
         },
-
         
-        
-
       ]
     }
   ])

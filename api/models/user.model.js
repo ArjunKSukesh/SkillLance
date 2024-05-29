@@ -21,10 +21,6 @@ const userSchema = new Schema({
         type : String,
         required : false,
     },
-    country :{
-        type : String,
-        required : true,
-    },
     phone :{
         type : String,
         required : false,
@@ -37,6 +33,14 @@ const userSchema = new Schema({
         type : Boolean,
         default : false,
     },
+    address: {
+        line1: { type: String, required: true },
+        line2: { type: String },
+        city: { type: String, required: true },
+        state: { type: String, required: true },
+        postalCode: { type: String, required: true },
+        country: { type: String, required: true },
+      },
 },{timestamps : true});
 
 

@@ -9,8 +9,6 @@ export default function Reviews({ gigId }) {
   const [reviewText, setReviewText] = useState('');
 
   const queryClient = useQueryClient();
-
-
   const { isLoading, error, data } = useQuery({
     queryKey: ['reviews'],
     queryFn: () =>

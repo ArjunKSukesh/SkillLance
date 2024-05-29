@@ -1,11 +1,12 @@
-import {Link} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import newRequest from "../utils/newRequest.js";
 
 export default function Orders() {
 
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
+  
+  const navigate = useNavigate();
 
 const { isLoading, error, data } = useQuery({
   queryKey: ['orders'],
@@ -14,6 +15,26 @@ const { isLoading, error, data } = useQuery({
       .then(res => res.data)
       .catch(error => console.log(error))
 });
+
+const handleContact = async (order) => {
+  const sellerId = order.sellerId;
+  const buyerId = order.buyerId;
+  const id = sellerId + buyerId ;
+  try {
+    const res = await newRequest.get(`/conversation/single/${id}`);
+    navigate(`/message/${res.data.id}`);
+
+  } catch (err) {
+    if(err.response.status === 404){
+      const res = await newRequest.post(`/conversation`,{
+        to : currentUser.seller ? buyerId : sellerId
+      });
+      navigate(`/message/${res.data.id}`);
+
+    }
+    
+  }
+}
 
 
 
@@ -42,7 +63,7 @@ const { isLoading, error, data } = useQuery({
             <td className='pl-4'>{order.title}</td>
             <td className='pl-6'>{order.price}</td>
             <td className='pl-7'>
-              <img src="/message.png" alt=""  className='w-6 h-6 cursor-pointer'/>
+              <img src="/message.png" alt=""  className='w-6 h-6 cursor-pointer' onClick={()=>handleContact(order)}/>
             </td>
           </tr>
           ))}

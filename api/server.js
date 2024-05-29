@@ -10,6 +10,8 @@ import conversationRoute from './routes/conversation.route.js'
 import authRoute from './routes/auth.route.js'
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import Razorpay from "razorpay";
+
 
 const app = express();
 dotenv.config();
@@ -32,6 +34,9 @@ app.use('/api/message',messageRoute);
 app.use('/api/gigs',gigRoute);
 app.use('/api/conversation',conversationRoute);
 
+app.get('/api/getkey',(req,res) => {
+  res.status(200).json({key : process.env.RAZORPAY_KEY_ID})
+})
 
 
 
@@ -42,6 +47,11 @@ app.use((err, req, res, next) => {
   return res.status(errorStatus).send(errorMessage);
 
 })
+
+export const razorpay = new Razorpay({
+  key_id : process.env.RAZORPAY_KEY_ID,
+  key_secret : process.env.RAZORPAY_SECRET
+});
 
 app.listen(3000, () => {
     console.log('Port 3000 is running')
