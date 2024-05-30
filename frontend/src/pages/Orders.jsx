@@ -47,12 +47,15 @@ const handleContact = async (order) => {
           
         </div>
         <table >
+          <thead>
           <tr className='h-[50px] '>
             <th className='text-left pl-4'>Image</th>
             <th className='text-left pl-4'>Title</th>
             <th className='text-left pl-4'>Price</th>
             <th className='text-left pl-4'>Contact</th>
           </tr>
+          </thead>
+          <tbody>
           { data.map( order => (
             <tr className='h-[50px] bg-blue-100' key={order._id}>
             <td className='pl-6'>
@@ -67,9 +70,7 @@ const handleContact = async (order) => {
             </td>
           </tr>
           ))}
-
-        
-          
+          </tbody>          
         </table>
       </div>
       )}

@@ -10,7 +10,7 @@ export default function Message() {
   const queryClient = useQueryClient();
 
   const { isLoading, error, data } = useQuery({
-    queryKey: ['messages'],
+    queryKey: ['messages',id],
     queryFn: () =>
       newRequest.get(`/message/${id}`)
         .then(res => res.data)
@@ -21,7 +21,7 @@ export default function Message() {
       return newRequest.post('/message', message);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["messages"])
+      queryClient.invalidateQueries(["messages",id])
     }
   });
 
@@ -49,19 +49,8 @@ export default function Message() {
     
     <div className='  flex flex-col gap-3  p-3'>
     {data.map((m) => (
-    //   <div key={m.userId} className='flex gap-2'>
-    //     <img
-    //           src="https://images.pexels.com/photos/1115697/pexels-photo-1115697.jpeg?auto=compress&cs=tinysrgb&w=1600"
-    //           alt=""
-    //           className='w-9 h-9 object-cover rounded-full '
-    //         />
-    //         <p 
-    // className={`${m.userId === currentUser._id ? 'ml-auto bg-green-200  rounded-tl-2xl' : 'mr-auto bg-white rounded-tr-2xl'} rounded-b-2xl  text-black max-w-[500px]  p-3  text-[15px] font-medium  `}>
-    //         {m.desc}
-    // </p>
-    //   </div>
 
-    <p key={m.userId} 
+    <p key={m._id} 
     className={`${m.userId === currentUser._id ? 'ml-auto bg-green-200  rounded-tl-2xl' : 'mr-auto bg-white rounded-tr-2xl'} rounded-b-2xl  text-black max-w-[500px]  p-3  text-[15px] font-medium  `}>
             {m.desc}
     </p>
