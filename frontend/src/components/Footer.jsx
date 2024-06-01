@@ -24,8 +24,8 @@ export default function Footer() {
              <h2 className="font-bold">Support</h2>
             <span>Help & Support</span>
             <span>Trust & Safety</span>
-            <span>Selling on Liverr</span>
-            <span>Buying on Liverr</span>
+            <span>Selling on SkillLance</span>
+            <span>Buying on SkillLance</span>
           </div>
 
           <div className="flex flex-col gap-4 text-gray-600">
