@@ -44,10 +44,7 @@ export default function Navbar({setShowLogin}) {
                 <span>Lance</span>
                 </Link>
             </div>
-            <div className="flex gap-10  items-center lg:mr-9 ">
-                <span className="hidden lg:inline  cursor-pointer hover:underline   font-semibold text-xl">Business</span>
-                <span className="hidden lg:inline cursor-pointer hover:underline    font-semibold text-xl">Explore</span>
-                <span className="hidden lg:inline  cursor-pointer hover:underline   font-semibold text-xl">English</span>
+            <div className="flex gap-10  items-center lg:mr-9 ">               
                { !currentUser?.isSeller && 
                 <span className=" font-semibold lg:text-xl   cursor-pointer hover:underline  text-center w-[150px]"                
                 >Become a Seller</span>

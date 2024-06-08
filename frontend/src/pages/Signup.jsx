@@ -128,12 +128,12 @@ function Signup() {
                     type="text" 
                     name='address.line1'
                     onChange={handleChange}
-                    className='rounded p-2 h-12 border border-gray-400 ' placeholder='Line 1'/>
+                    className='rounded p-2 h-12 border border-gray-400 ' placeholder='House Name'/>
                     <input 
                     type="text" 
                     name='address.line2'
                     onChange={handleChange}
-                    className='rounded p-2 h-12 border border-gray-400 ' placeholder='Line 2'/>
+                    className='rounded p-2 h-12 border border-gray-400 ' placeholder='Street'/>
                     <input 
                     type="text" 
                     name='address.city'

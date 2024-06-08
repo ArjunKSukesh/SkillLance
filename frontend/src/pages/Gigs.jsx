@@ -25,10 +25,8 @@ export default function Gigs() {
       newRequest.get(`/gigs/allgigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`)
         .then(res => res.data)
         .catch(error => console.log(error))
-  });
-
-
-
+  }); 
+  
   const reSort = (type) => {
     setSort(type)
     setOpen(false)
